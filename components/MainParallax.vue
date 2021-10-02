@@ -1,5 +1,5 @@
 <template>
-    <div class="mb-10 mt-10">
+    <div class="mb-10">
         <v-parallax
             height="800"
             dark

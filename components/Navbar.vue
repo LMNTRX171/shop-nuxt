@@ -3,7 +3,7 @@
     <v-app-bar
       app
       flat
-    >   
+    >
     <v-toolbar-title class="ml-4  display-2">
       <nuxt-link 
         to="/"
@@ -12,7 +12,7 @@
         />
     </v-toolbar-title>
       <v-spacer></v-spacer>
-      <div v-for="link in links" :key="link.id">
+      <div v-for="link in links" :key="link.text">
             <v-toolbar-title class="mr-7">
       <nuxt-link 
         :to="link.path"
@@ -27,19 +27,19 @@
               depressed
               small
             >
-              Logout
+              
             <v-icon right>mdi-logout</v-icon>
             </v-btn>
 
             <v-btn
               depressed
               small
-              @click="messages++"
+              to="/basket"
             >
-              Basket
+              
               <v-badge
-                :content="messages"
-                :value="messages"
+                :content="cartCount"
+                :value="cartCount"
                 color="green"
                 overlap
               >
@@ -85,14 +85,17 @@ export default {
   components: {  },
     computed: {
     ...mapGetters(["isAuthenticated", "loggedInUser"]),
+    cartCount() {
+      return this.$store.getters['cart/cartCount']
+    },
   },
   data () {
     return {
-      title: 'Shop',
+      title: 'StockxShop',
       messages: 0,
       links: [
         { title: 'Mens', path: '/appBarLinks/Mens' },
-        { title: 'Womans', path: '/appBarLinks/Womans' },
+        { title: 'Womens', path: '/appBarLinks/Womans' },
         { title: 'Kids', path: '/appBarLinks/Kids' },
         { title: 'Best Seller', path: '/appBarLinks/BestSeller' },
         { title: 'Collections', path: '/appBarLinks/Collections' },

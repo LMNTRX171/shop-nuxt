@@ -1,7 +1,6 @@
 <template>
   <div>
     <div>
-      <Notification v-if="success" :message="success"/>
     </div>
     <div class="mt-16">
       <v-card
@@ -54,12 +53,8 @@
 <script>
 import { validationMixin } from 'vuelidate'
 import { required, email } from 'vuelidate/lib/validators'
-import Notification from '../components/Notification'
 
 export default {
-  components: {
-    Notification
-  },
   mixins: [validationMixin],
   validations: {
     email: { required, email },
